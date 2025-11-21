@@ -1,0 +1,61 @@
+2025-11-16 13:39:25,070 - INFO - ============================================================
+2025-11-16 13:39:25,070 - INFO - LEfSe Analysis Started
+2025-11-16 13:39:25,071 - INFO - ============================================================
+2025-11-16 13:39:25,071 - INFO - Step 1: Validating input files and parameters...
+2025-11-16 13:39:25,074 - INFO - Input file validated: hmp_aerobiosis_small.in (629749 bytes)
+2025-11-16 13:39:25,074 - INFO - Inspecting input file structure: hmp_aerobiosis_small.in
+2025-11-16 13:39:25,076 - WARNING - Could not inspect input file: 'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte
+2025-11-16 13:39:25,077 - INFO - Output path validated: hmp_aerobiosis_small.res
+2025-11-16 13:39:25,078 - INFO - Validating parameters...
+2025-11-16 13:39:25,078 - INFO - Parameter validation passed
+2025-11-16 13:39:25,078 - INFO - Step 2: Loading data...
+2025-11-16 13:39:25,088 - INFO - Data loaded successfully:
+2025-11-16 13:39:25,089 - INFO -   - Number of features: 1091
+2025-11-16 13:39:25,089 - INFO -   - Number of classes: 3
+2025-11-16 13:39:25,089 - INFO -   - Classes: ['subject', 'subclass', 'class']
+2025-11-16 13:39:25,089 - INFO - Step 3: Computing class means...
+2025-11-16 13:39:25,104 - INFO - Class means computed for 1091 features
+2025-11-16 13:39:25,104 - INFO - Step 4: Running Kruskal-Wallis tests...
+2025-11-16 13:39:26,351 - INFO - Statistical testing complete:
+2025-11-16 13:39:26,351 - INFO -   - KW passed: 131/1091
+2025-11-16 13:39:26,351 - INFO -   - KW rejected: 960/1091
+2025-11-16 13:39:26,351 - INFO -   - Wilcoxon rejected: 80/131
+2025-11-16 13:39:26,352 - INFO -   - Features remaining: 51
+2025-11-16 13:39:26,352 - INFO - Step 5: Computing effect sizes...
+2025-11-16 13:39:26,352 - INFO - Diagnosing class structure for LDA:
+2025-11-16 13:39:26,352 - INFO -   - Class labels found: ['High_O2', 'Low_O2', 'Mid_O2']
+2025-11-16 13:39:26,352 - INFO -   - Number of unique classes: 3
+2025-11-16 13:39:26,353 - INFO -   - Class 'High_O2': 30 samples (indices 0 to 30)
+2025-11-16 13:39:26,353 - INFO -   - Class 'Low_O2': 10 samples (indices 30 to 40)
+2025-11-16 13:39:26,353 - INFO -   - Class 'Mid_O2': 15 samples (indices 40 to 55)
+2025-11-16 13:39:26,353 - INFO -   - Number of features: 51
+2025-11-16 13:39:26,354 - INFO - ✓ Class structure is valid for LDA
+2025-11-16 13:39:26,354 - INFO - Running LDA with 30 bootstraps...
+2025-11-16 13:39:26,354 - INFO - Calling test_lda_r...
+2025-11-16 13:39:26,816 - INFO - test_lda_r returned successfully
+2025-11-16 13:39:26,816 - ERROR - LDA returned None - computation failed
+2025-11-16 13:39:26,816 - ERROR - This usually indicates:
+2025-11-16 13:39:26,817 - ERROR -   1. Insufficient sample diversity within classes
+2025-11-16 13:39:26,817 - ERROR -   2. Perfect separation between classes
+2025-11-16 13:39:26,817 - ERROR -   3. Collinear features
+2025-11-16 13:39:26,817 - ERROR -   4. R computation error
+2025-11-16 13:39:26,817 - ERROR - 
+2025-11-16 13:39:26,818 - ERROR - DIAGNOSTIC INFO:
+2025-11-16 13:39:26,818 - ERROR -   - Number of features: 51
+2025-11-16 13:39:26,818 - ERROR -   - Number of samples: 55
+2025-11-16 13:39:26,818 - ERROR -   - Number of classes: 3
+2025-11-16 13:39:26,819 - ERROR -   - Bootstrap samples per class: 6
+2025-11-16 13:39:26,819 - ERROR - 
+2025-11-16 13:39:26,819 - ERROR - SUGGESTIONS:
+2025-11-16 13:39:26,819 - ERROR -   1. Try with fewer features (only top discriminative ones)
+2025-11-16 13:39:26,819 - ERROR -   2. Increase bootstrap fraction: -f 0.9
+2025-11-16 13:39:26,820 - ERROR -   3. Reduce bootstrap iterations: -b 10
+2025-11-16 13:39:26,820 - ERROR -   4. Compare only 2 groups instead of 3
+2025-11-16 13:39:26,820 - ERROR -   5. Skip LDA and use KW results only: -l -1
+2025-11-16 13:39:26,820 - ERROR - Error during effect size computation: LDA computation failed - check data quality and class distribution
+2025-11-16 13:39:26,820 - ERROR - This may be due to:
+2025-11-16 13:39:26,821 - ERROR -   - Insufficient variance in features
+2025-11-16 13:39:26,821 - ERROR -   - Too few samples in one or more classes
+2025-11-16 13:39:26,821 - ERROR -   - Data quality issues
+2025-11-16 13:39:26,821 - ERROR - Invalid value: LDA computation failed - check data quality and class distribution
+2025-11-16 13:39:26,930 - INFO - Embedded R ended.
